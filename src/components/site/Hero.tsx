@@ -45,8 +45,8 @@ export function Hero() {
         animate={{ 
           scale: [1, 1.1, 1], 
           opacity: [0.5, 0.8, 0.5],
-          x: mousePos.x - (window.innerWidth / 2),
-          y: mousePos.y - (window.innerHeight / 2)
+          x: mousePos.x,
+          y: mousePos.y
         }}
         transition={{ 
           scale: { duration: 8, repeat: Infinity, ease: "easeInOut" },
