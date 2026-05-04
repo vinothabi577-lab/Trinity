@@ -3,6 +3,8 @@ import kitchen from "@/assets/project-kitchen.jpg";
 import dining from "@/assets/project-dining.jpg";
 import suite from "@/assets/project-suite.jpg";
 import lounge from "@/assets/project-lounge.jpg";
+import { motion } from "framer-motion";
+import { SlideUp } from "@/components/ui/SlideUp";
 
 const projects = [
   { title: "Hayes Master Bedroom", tag: "Residential", image: bedroom },
@@ -14,19 +16,28 @@ const projects = [
 
 export function ProjectsSection() {
   return (
-    <section id="portfolio" className="mt-24 bg-[oklch(0.22_0.04_160)] py-20 text-[oklch(0.95_0.01_150)]">
+    <section id="portfolio" className="mt-24 bg-foreground py-24 text-background">
       <div className="mx-auto w-full max-w-6xl px-4">
         <div className="text-center">
-          <h2 className="text-4xl font-semibold tracking-tight md:text-5xl">Selected Projects</h2>
-          <p className="mt-3 text-[oklch(0.78_0.01_150)]">A curated selection of recent work from our portfolio.</p>
+          <SlideUp>
+            <h2 className="text-4xl font-bold tracking-tight md:text-5xl">Selected Projects</h2>
+          </SlideUp>
+          <SlideUp delay={0.1}>
+            <p className="mt-4 font-medium text-background/80 md:text-lg">A curated selection of recent work from our portfolio.</p>
+          </SlideUp>
         </div>
 
         <div className="mt-12 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
           {projects.map((p, i) => (
-            <article
+            <motion.article
               key={p.title}
-              className="card-lift animate-float-in group overflow-hidden rounded-2xl bg-surface text-foreground"
-              style={{ boxShadow: "var(--shadow-card)", animationDelay: `${i * 80}ms` }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="group overflow-hidden rounded-2xl bg-surface text-foreground"
+              style={{ boxShadow: "var(--shadow-card)" }}
             >
               <div className="overflow-hidden">
                 <img
@@ -35,19 +46,23 @@ export function ProjectsSection() {
                   width={1024}
                   height={1024}
                   loading="lazy"
-                  className="card-image h-44 w-full object-cover md:h-52"
+                  className="card-image h-44 w-full object-cover md:h-52 transition-transform duration-1000 group-hover:scale-110"
                 />
               </div>
               <div className="flex items-start justify-between gap-2 p-4">
                 <div>
-                  <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{p.tag}</div>
-                  <div className="mt-1 text-sm font-semibold leading-tight">{p.title}</div>
+                  <SlideUp delay={i * 0.1 + 0.1}>
+                    <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{p.tag}</div>
+                  </SlideUp>
+                  <SlideUp delay={i * 0.1 + 0.2}>
+                    <div className="mt-1 text-sm font-semibold leading-tight">{p.title}</div>
+                  </SlideUp>
                 </div>
                 <span className="mt-1 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-[11px] font-semibold text-primary-foreground">
                   {i + 1}
                 </span>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 
 const links = [
   { label: "About", href: "#about" },
@@ -11,12 +12,17 @@ const links = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-4 z-40 mx-auto w-full max-w-6xl px-4">
+    <motion.header 
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      className="sticky top-6 z-40 mx-auto w-full max-w-6xl px-4 pt-6"
+    >
       <nav
-        className="relative flex items-center justify-between rounded-full bg-surface/90 px-6 py-3 backdrop-blur-md"
+        className="relative flex items-center justify-between rounded-full bg-surface/60 border border-white/40 px-6 py-3 backdrop-blur-xl"
         style={{ boxShadow: "var(--shadow-nav)" }}
       >
-        <Link to="/" className="text-sm font-semibold tracking-[0.25em] text-foreground">
+        <Link to="/" className="text-sm font-semibold tracking-[0.25em] text-foreground transition-opacity hover:opacity-80">
           TRINITY
         </Link>
 
@@ -67,6 +73,6 @@ export function Navbar() {
           </ul>
         </div>
       )}
-    </header>
+    </motion.header>
   );
 }

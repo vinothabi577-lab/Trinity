@@ -42,43 +42,43 @@
 :root {
   --radius: 1.25rem;
 
-  /* Page is a soft cool gray, cards are near-white */
-  --background: oklch(0.94 0.003 250);
-  --foreground: oklch(0.32 0.02 160);
+  /* Premium Light Theme - warm elegant grays & earthy primary */
+  --background: oklch(0.99 0.005 80);
+  --foreground: oklch(0.25 0.02 80);
 
-  --surface: oklch(0.985 0.002 250);
-  --surface-soft: oklch(0.97 0.003 250);
+  --surface: oklch(1 0 0);
+  --surface-soft: oklch(0.97 0.005 80);
 
-  --card: oklch(0.985 0.002 250);
-  --card-foreground: oklch(0.32 0.02 160);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.25 0.02 80);
 
-  --popover: oklch(0.985 0.002 250);
-  --popover-foreground: oklch(0.32 0.02 160);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.25 0.02 80);
 
-  /* Brand green from the Consultation pill / number bubbles */
-  --primary: oklch(0.5 0.13 155);
-  --primary-foreground: oklch(0.98 0.005 150);
-  --primary-glow: oklch(0.62 0.16 155);
+  /* Deep sage / bronze for primary elements */
+  --primary: oklch(0.45 0.05 100);
+  --primary-foreground: oklch(0.98 0.01 90);
+  --primary-glow: oklch(0.6 0.06 100);
 
-  --secondary: oklch(0.96 0.004 250);
-  --secondary-foreground: oklch(0.32 0.02 160);
+  --secondary: oklch(0.96 0.01 80);
+  --secondary-foreground: oklch(0.25 0.02 80);
 
-  --muted: oklch(0.95 0.004 250);
-  --muted-foreground: oklch(0.5 0.02 250);
+  --muted: oklch(0.95 0.01 80);
+  --muted-foreground: oklch(0.55 0.02 80);
 
-  --accent: oklch(0.92 0.04 155);
-  --accent-foreground: oklch(0.32 0.02 160);
+  --accent: oklch(0.92 0.02 90);
+  --accent-foreground: oklch(0.25 0.02 80);
 
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.98 0.005 150);
 
-  --border: oklch(0.9 0.005 250);
-  --input: oklch(0.9 0.005 250);
-  --ring: oklch(0.5 0.13 155);
+  --border: oklch(0.92 0.01 80);
+  --input: oklch(0.92 0.01 80);
+  --ring: oklch(0.45 0.05 100);
 
-  --shadow-card: 0 30px 60px -30px oklch(0.3 0.02 250 / 0.18), 0 8px 20px -12px oklch(0.3 0.02 250 / 0.08);
-  --shadow-nav: 0 10px 30px -12px oklch(0.3 0.02 250 / 0.18), 0 2px 6px -2px oklch(0.3 0.02 250 / 0.06);
-  --shadow-pill: 0 18px 40px -12px oklch(0.5 0.13 155 / 0.55), 0 4px 14px -4px oklch(0.5 0.13 155 / 0.35);
+  --shadow-card: 0 30px 60px -30px oklch(0.2 0.02 80 / 0.12), 0 8px 20px -12px oklch(0.2 0.02 80 / 0.05);
+  --shadow-nav: 0 10px 30px -12px oklch(0.2 0.02 80 / 0.1), 0 2px 6px -2px oklch(0.2 0.02 80 / 0.03);
+  --shadow-pill: 0 18px 40px -12px oklch(0.45 0.05 100 / 0.4), 0 4px 14px -4px oklch(0.45 0.05 100 / 0.25);
 }
 
 @layer base {
@@ -86,11 +86,19 @@
     border-color: var(--color-border);
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   html, body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
   }
 }
 
@@ -102,14 +110,19 @@
 }
 
 @keyframes pill-glow {
-  0%, 100% { box-shadow: 0 18px 40px -12px oklch(0.5 0.13 155 / 0.55), 0 4px 14px -4px oklch(0.5 0.13 155 / 0.35); }
-  50% { box-shadow: 0 22px 50px -10px oklch(0.5 0.13 155 / 0.7), 0 6px 18px -4px oklch(0.5 0.13 155 / 0.45); }
+  0%, 100% { box-shadow: 0 18px 40px -12px oklch(0.45 0.05 100 / 0.4), 0 4px 14px -4px oklch(0.45 0.05 100 / 0.25); }
+  50% { box-shadow: 0 22px 50px -10px oklch(0.45 0.05 100 / 0.6), 0 6px 18px -4px oklch(0.45 0.05 100 / 0.35); }
 }
 
 @keyframes badge-pop {
   0% { transform: scale(0.6); opacity: 0; }
   60% { transform: scale(1.1); opacity: 1; }
   100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 0.5rem)); }
 }
 
 .animate-float-in {
@@ -124,15 +137,53 @@
   animation: badge-pop 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
 /* Card hover lift */
 .card-lift {
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.5s ease;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .card-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 40px 70px -30px oklch(0.3 0.02 250 / 0.22), 0 12px 28px -14px oklch(0.3 0.02 250 / 0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 40px 80px -30px oklch(0.2 0.02 80 / 0.15), 0 12px 28px -14px oklch(0.2 0.02 80 / 0.08);
 }
 
 /* Image zoom on card hover */
-.card-lift:hover .card-image { transform: scale(1.04); }
-.card-image { transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1); }
+.card-lift:hover .card-image { transform: scale(1.06); }
+.card-image { transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* Text Gradient Utility */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-foreground) 0%, oklch(0.5 0.02 80) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Lenis Smooth Scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}

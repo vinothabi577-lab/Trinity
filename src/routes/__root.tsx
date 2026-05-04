@@ -1,4 +1,7 @@
+import { useState, useEffect } from "react";
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { CustomCursor } from "../components/ui/CustomCursor";
+import Lenis from "lenis";
 
 import appCss from "../styles.css?url";
 
@@ -39,6 +42,9 @@ export const Route = createRootRoute({
       { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" },
       {
         rel: "stylesheet",
         href: appCss,
@@ -51,12 +57,28 @@ export const Route = createRootRoute({
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
     <html lang="en">
       <head>
         <HeadContent />
       </head>
       <body>
+        <CustomCursor />
         {children}
         <Scripts />
       </body>
