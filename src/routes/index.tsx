@@ -10,6 +10,7 @@ import { TestimonialsSection } from "@/components/site/TestimonialsSection";
 import { FaqSection } from "@/components/site/FaqSection";
 import { CtaSection } from "@/components/site/CtaSection";
 import { Footer } from "@/components/site/Footer";
+import { ScrollProgress } from "@/components/ui/ScrollProgress";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -26,6 +27,7 @@ export const Route = createFileRoute("/")({
 function Index() {
   return (
     <div className="min-h-screen bg-background">
+      <ScrollProgress />
       <Navbar />
       <Hero />
       <LogoStrip />
