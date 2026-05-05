@@ -17,9 +17,17 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Trinity — Spaces That Inspire, Designed for You" },
-      { name: "description", content: "Trinity is an interior design studio crafting timeless residential, commercial and bespoke furnishing experiences." },
+      {
+        name: "description",
+        content:
+          "Trinity is an interior design studio crafting timeless residential, commercial and bespoke furnishing experiences.",
+      },
       { property: "og:title", content: "Trinity — Interior Design Studio" },
-      { property: "og:description", content: "Residential, commercial and bespoke furnishing solutions, designed and built to last." },
+      {
+        property: "og:description",
+        content:
+          "Residential, commercial and bespoke furnishing solutions, designed and built to last.",
+      },
     ],
   }),
   component: Index,

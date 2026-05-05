@@ -23,7 +23,9 @@ export function ProjectsSection() {
             <h2 className="text-4xl font-bold tracking-tight md:text-5xl">Selected Projects</h2>
           </SlideUp>
           <SlideUp delay={0.1}>
-            <p className="mt-4 font-medium text-background/80 md:text-lg">A curated selection of recent work from our portfolio.</p>
+            <p className="mt-4 font-medium text-background/80 md:text-lg">
+              A curated selection of recent work from our portfolio.
+            </p>
           </SlideUp>
         </div>
 
@@ -34,7 +36,11 @@ export function ProjectsSection() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              transition={{
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+              }}
               whileHover={{ y: -8, transition: { duration: 0.3 } }}
               className="group overflow-hidden rounded-2xl bg-surface text-foreground"
               style={{ boxShadow: "var(--shadow-card)" }}
@@ -52,7 +58,9 @@ export function ProjectsSection() {
               <div className="flex items-start justify-between gap-2 p-4">
                 <div>
                   <SlideUp delay={i * 0.1 + 0.1}>
-                    <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{p.tag}</div>
+                    <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                      {p.tag}
+                    </div>
                   </SlideUp>
                   <SlideUp delay={i * 0.1 + 0.2}>
                     <div className="mt-1 text-sm font-semibold leading-tight">{p.title}</div>

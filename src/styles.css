@@ -76,9 +76,12 @@
   --input: oklch(0.92 0.01 80);
   --ring: oklch(0.45 0.05 100);
 
-  --shadow-card: 0 30px 60px -30px oklch(0.2 0.02 80 / 0.12), 0 8px 20px -12px oklch(0.2 0.02 80 / 0.05);
-  --shadow-nav: 0 10px 30px -12px oklch(0.2 0.02 80 / 0.1), 0 2px 6px -2px oklch(0.2 0.02 80 / 0.03);
-  --shadow-pill: 0 18px 40px -12px oklch(0.45 0.05 100 / 0.4), 0 4px 14px -4px oklch(0.45 0.05 100 / 0.25);
+  --shadow-card:
+    0 30px 60px -30px oklch(0.2 0.02 80 / 0.12), 0 8px 20px -12px oklch(0.2 0.02 80 / 0.05);
+  --shadow-nav:
+    0 10px 30px -12px oklch(0.2 0.02 80 / 0.1), 0 2px 6px -2px oklch(0.2 0.02 80 / 0.03);
+  --shadow-pill:
+    0 18px 40px -12px oklch(0.45 0.05 100 / 0.4), 0 4px 14px -4px oklch(0.45 0.05 100 / 0.25);
 }
 
 @layer base {
@@ -90,39 +93,81 @@
     scroll-behavior: smooth;
   }
 
-  html, body {
+  html,
+  body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Outfit', system-ui, -apple-system, sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family:
+      "Outfit",
+      system-ui,
+      -apple-system,
+      sans-serif;
   }
 }
 
 /* ---- Animations ---- */
 
 @keyframes float-in {
-  0% { opacity: 0; transform: translateY(24px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes pill-glow {
-  0%, 100% { box-shadow: 0 18px 40px -12px oklch(0.45 0.05 100 / 0.4), 0 4px 14px -4px oklch(0.45 0.05 100 / 0.25); }
-  50% { box-shadow: 0 22px 50px -10px oklch(0.45 0.05 100 / 0.6), 0 6px 18px -4px oklch(0.45 0.05 100 / 0.35); }
+  0%,
+  100% {
+    box-shadow:
+      0 18px 40px -12px oklch(0.45 0.05 100 / 0.4),
+      0 4px 14px -4px oklch(0.45 0.05 100 / 0.25);
+  }
+  50% {
+    box-shadow:
+      0 22px 50px -10px oklch(0.45 0.05 100 / 0.6),
+      0 6px 18px -4px oklch(0.45 0.05 100 / 0.35);
+  }
 }
 
 @keyframes badge-pop {
-  0% { transform: scale(0.6); opacity: 0; }
-  60% { transform: scale(1.1); opacity: 1; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50% - 0.5rem)); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
 }
 
 .animate-float-in {
@@ -147,16 +192,24 @@
 
 /* Card hover lift */
 .card-lift {
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition:
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 .card-lift:hover {
   transform: translateY(-6px);
-  box-shadow: 0 40px 80px -30px oklch(0.2 0.02 80 / 0.15), 0 12px 28px -14px oklch(0.2 0.02 80 / 0.08);
+  box-shadow:
+    0 40px 80px -30px oklch(0.2 0.02 80 / 0.15),
+    0 12px 28px -14px oklch(0.2 0.02 80 / 0.08);
 }
 
 /* Image zoom on card hover */
-.card-lift:hover .card-image { transform: scale(1.06); }
-.card-image { transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1); }
+.card-lift:hover .card-image {
+  transform: scale(1.06);
+}
+.card-image {
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
 
 /* Text Gradient Utility */
 .text-gradient {

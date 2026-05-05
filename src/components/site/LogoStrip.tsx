@@ -1,5 +1,11 @@
 const tags = [
-  "Residential", "Commercial", "Hospitality", "Furnishing", "Lighting Design", "Renovation", "Styling",
+  "Residential",
+  "Commercial",
+  "Hospitality",
+  "Furnishing",
+  "Lighting Design",
+  "Renovation",
+  "Styling",
 ];
 
 export function LogoStrip() {

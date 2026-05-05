@@ -10,7 +10,7 @@ export function ExpertiseSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"]
+    offset: ["start start", "end end"],
   });
   return (
     <section id="services" className="mx-auto mt-24 w-full max-w-6xl px-4">
@@ -22,7 +22,8 @@ export function ExpertiseSection() {
         </SlideUp>
         <SlideUp delay={0.1}>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-            Whatever the brief, we have the team to take it from concept to completion — beautifully.
+            Whatever the brief, we have the team to take it from concept to completion —
+            beautifully.
           </p>
         </SlideUp>
       </div>

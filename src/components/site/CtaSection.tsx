@@ -11,7 +11,9 @@ export function CtaSection() {
             style={{ boxShadow: "var(--shadow-card)" }}
           >
             <SlideUp delay={0.1}>
-              <div className="text-xs font-medium uppercase tracking-[0.25em] text-primary">Let&apos;s talk</div>
+              <div className="text-xs font-medium uppercase tracking-[0.25em] text-primary">
+                Let&apos;s talk
+              </div>
               <h2 className="mt-4 text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
                 Ready to Transform Your Space?
               </h2>
@@ -28,8 +30,18 @@ export function CtaSection() {
                   className="animate-pill-glow mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.03]"
                 >
                   Book a Consultation
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M7 17L17 7" /><path d="M8 7h9v9" />
+                  <svg
+                    width="14"
+                    height="14"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M7 17L17 7" />
+                    <path d="M8 7h9v9" />
                   </svg>
                 </a>
               </Magnetic>

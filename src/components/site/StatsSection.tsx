@@ -27,7 +27,10 @@ function Counter({ value, suffix }: { value: number; suffix: string }) {
   }, [inView, motionValue, value]);
 
   return (
-    <div ref={ref} className="mt-2 text-5xl font-semibold tracking-tight text-foreground flex items-center justify-center">
+    <div
+      ref={ref}
+      className="mt-2 text-5xl font-semibold tracking-tight text-foreground flex items-center justify-center"
+    >
       <motion.span>{rounded}</motion.span>
       <span>{suffix}</span>
     </div>
@@ -39,10 +42,14 @@ export function StatsSection() {
     <section className="mx-auto mt-24 w-full max-w-6xl px-4">
       <div className="text-center">
         <SlideUp>
-          <h2 className="text-4xl font-semibold tracking-tight text-foreground md:text-5xl">Proven Results</h2>
+          <h2 className="text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
+            Proven Results
+          </h2>
         </SlideUp>
         <SlideUp delay={0.1}>
-          <p className="mt-3 text-muted-foreground">Numbers that reflect our commitment to design excellence.</p>
+          <p className="mt-3 text-muted-foreground">
+            Numbers that reflect our commitment to design excellence.
+          </p>
         </SlideUp>
       </div>
 
@@ -56,7 +63,9 @@ export function StatsSection() {
               <div className="mx-auto mb-4 flex h-9 w-9 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
                 {i + 1}
               </div>
-              <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">{s.label}</div>
+              <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                {s.label}
+              </div>
               <Counter value={s.value} suffix={s.suffix} />
             </div>
           </SlideUp>
